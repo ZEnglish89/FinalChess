@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chess Board</title>
+  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script src="../js/chess.js"></script>
+</head>
+<body>
+  <style type = "text/css">
+    body{
+      background-color: brown;
+    }
+    .board{
+      width:814;
+      height:800;
+      margin: auto;
+      box-shadow: 0 0 10px 10px;
+      border-collapse: collapse;
+    }
+    .box{
+      width:100px;
+      height:100px;
+      border: 1px solid black;
+      display: inline-block;
+      margin: -2px;
+      font-size: 92px;
+      text-align: center;
+    }
+    .black{
+      background-color: silver;
+    }
+    .white{
+      background-color: white;
+    }
+    .green{
+      background-color: green;
+    }
+  </style>
+  <input id="resetButton" type="button" value="Reset" onclick = "reset()"/>
+  <div class ="board" id = "board">
+  <div id = "8">
+    <div class = "box white" id = "A" onclick = "checkVal(this)">&#9814</div>
+    <div class = "box black" id = "B" onclick = "checkVal(this)">&#9816</div>
+    <div class = "box white" id = "C" onclick = "checkVal(this)">&#9815</div>
+    <div class = "box black" id = "D" onclick = "checkVal(this)">&#9812</div>
+    <div class = "box white" id = "E" onclick = "checkVal(this)">&#9813</div>
+    <div class = "box black" id = "F" onclick = "checkVal(this)">&#9815</div>
+    <div class = "box white" id = "G" onclick = "checkVal(this)">&#9816</div>
+    <div class = "box black" id = "H" onclick = "checkVal(this)">&#9814</div>
+  </div>
+  <div id = "7">
+    <div class = "box black" id = "A" onclick = "checkVal(this)">&#9817</div>
+    <div class = "box white" id = "B" onclick = "checkVal(this)">&#9817</div>
+    <div class = "box black" id = "C" onclick = "checkVal(this)">&#9817</div>
+    <div class = "box white" id = "D" onclick = "checkVal(this)">&#9817</div>
+    <div class = "box black" id = "E" onclick = "checkVal(this)">&#9817</div>
+    <div class = "box white" id = "F" onclick = "checkVal(this)">&#9817</div>
+    <div class = "box black" id = "G" onclick = "checkVal(this)">&#9817</div>
+    <div class = "box white" id = "H" onclick = "checkVal(this)">&#9817</div>
+  </div>
+  <div id = "6">
+    <div class = "box white" id = "A" onclick = "checkVal(this)"></div>
+    <div class = "box black" id = "B" onclick = "checkVal(this)"></div>
+    <div class = "box white" id = "C" onclick = "checkVal(this)"></div>
+    <div class = "box black" id = "D" onclick = "checkVal(this)"></div>
+    <div class = "box white" id = "E" onclick = "checkVal(this)"></div>
+    <div class = "box black" id = "F" onclick = "checkVal(this)"></div>
+    <div class = "box white" id = "G" onclick = "checkVal(this)"></div>
+    <div class = "box black" id = "H" onclick = "checkVal(this)"></div>
+  </div>
+  <div id = "5">
+    <div class = "box black" id = "A" onclick = "checkVal(this)"></div>
+    <div class = "box white" id = "B" onclick = "checkVal(this)"></div>
+    <div class = "box black" id = "C" onclick = "checkVal(this)"></div>
+    <div class = "box white" id = "D" onclick = "checkVal(this)"></div>
+    <div class = "box black" id = "E" onclick = "checkVal(this)"></div>
+    <div class = "box white" id = "F" onclick = "checkVal(this)"></div>
+    <div class = "box black" id = "G" onclick = "checkVal(this)"></div>
+    <div class = "box white" id = "H" onclick = "checkVal(this)"></div>
+  </div>
+  <div id = "4">
+    <div class = "box white" id = "A" onclick = "checkVal(this)"></div>
+    <div class = "box black" id = "B" onclick = "checkVal(this)"></div>
+    <div class = "box white" id = "C" onclick = "checkVal(this)"></div>
+    <div class = "box black" id = "D" onclick = "checkVal(this)"></div>
+    <div class = "box white" id = "E" onclick = "checkVal(this)"></div>
+    <div class = "box black" id = "F" onclick = "checkVal(this)"></div>
+    <div class = "box white" id = "G" onclick = "checkVal(this)"></div>
+    <div class = "box black" id = "H" onclick = "checkVal(this)"></div>
+  </div>
+  <div id = "3">
+    <div class = "box black" id = "A" onclick = "checkVal(this)"></div>
+    <div class = "box white" id = "B" onclick = "checkVal(this)"></div>
+    <div class = "box black" id = "C" onclick = "checkVal(this)"></div>
+    <div class = "box white" id = "D" onclick = "checkVal(this)"></div>
+    <div class = "box black" id = "E" onclick = "checkVal(this)"></div>
+    <div class = "box white" id = "F" onclick = "checkVal(this)"></div>
+    <div class = "box black" id = "G" onclick = "checkVal(this)"></div>
+    <div class = "box white" id = "H" onclick = "checkVal(this)"></div>
+  </div>
+  <div id = "2">
+    <div class = "box white" id = "A" onclick = "checkVal(this)">&#9823</div>
+    <div class = "box black" id = "B" onclick = "checkVal(this)">&#9823</div>
+    <div class = "box white" id = "C" onclick = "checkVal(this)">&#9823</div>
+    <div class = "box black" id = "D" onclick = "checkVal(this)">&#9823</div>
+    <div class = "box white" id = "E" onclick = "checkVal(this)">&#9823</div>
+    <div class = "box black" id = "F" onclick = "checkVal(this)">&#9823</div>
+    <div class = "box white" id = "G" onclick = "checkVal(this)">&#9823</div>
+    <div class = "box black" id = "H" onclick = "checkVal(this)">&#9823</div>
+  </div>
+  <div id = "1">
+    <div class = "box black" id = "A" onclick = "checkVal(this)">&#9820</div>
+    <div class = "box white" id = "B" onclick = "checkVal(this)">&#9822</div>
+    <div class = "box black" id = "C" onclick = "checkVal(this)">&#9821</div>
+    <div class = "box white" id = "D" onclick = "checkVal(this)">&#9819</div>
+    <div class = "box black" id = "E" onclick = "checkVal(this)">&#9818</div>
+    <div class = "box white" id = "F" onclick = "checkVal(this)">&#9821</div>
+    <div class = "box black" id = "G" onclick = "checkVal(this)">&#9822</div>
+    <div class = "box white" id = "H" onclick = "checkVal(this)">&#9820</div>
+  </div>
+</div>
+<script type="text/javascript">
+  var BLACKPAWN = "♟";
+  var WHITEPAWN = "♙";
+  var BLACKROOK = "♜";
+  var WHITEROOK = "♖";
+  var BLACKBISHOP = "♝"
+  var WHITEBISHOP = "♗";
+  var BLACKKNIGHT = "♞";
+  var WHITEKNIGHT = "♘";
+  var BLACKKING = "♚";
+  var WHITEKING = "♔";
+  var BLACKQUEEN = "♛";
+  var WHITEQUEEN = "♕";
+  var EMPTYSPACE = "";
+
+  function jsToPiece(piece){
+    if(piece == null)
+      return(EMPTYSPACE)
+
+    switch(piece.type){
+      case "pawn":
+        if(piece.color == "black")
+          return(BLACKPAWN)
+        else
+          return(WHITEPAWN)
+      case "rook":
+        if(piece.color == "black")
+          return(BLACKROOK)
+        else
+          return(WHITEROOK)
+      case "knight":
+        if(piece.color == "black")
+          return(BLACKKNIGHT)
+        else
+          return(WHITEKNIGHT)
+      case "bishop":
+        if(piece.color == "black")
+          return(BLACKBISHOP)
+        else
+          return(WHITEBISHOP)
+      case "king":
+        if(piece.color == "black")
+          return(BLACKKING)
+        else
+          return(WHITEKING)
+      case "queen":
+        if(piece.color == "black")
+          return(BLACKQUEEN)
+        else
+          return(WHITEQUEEN)
+    }
+  }
+  function useReturnData(data){
+    console.log("data is " + data);
+    console.log(data.retVal);
+    let stupiddataihateyou = data;
+    let obj = new Player(data.retVal.ident,data.retVal.username,data.retVal.wins,data.retVal.losses);
+    $.ajax({
+      url: "/update",
+      type: "PUT",
+      data:{
+        obj: obj
+      },
+      success: function(data){
+        console.log("in put");
+        console.log(data);
+      },
+      dataType: "json"
+    });
+};
+  var tid;
+  function mycode() {
+      $.ajax({
+        url: "/read",
+        type: "GET",
+        success: function(data){
+          for(var i=0;i<8;i++){
+            var row = $("#" + (8 - i));
+            row.find("#A").html(jsToPiece(data.board.board[i*8]));
+            row.find("#B").html(jsToPiece(data.board.board[i*8+1]));
+            row.find("#C").html(jsToPiece(data.board.board[i*8+2]));
+            row.find("#D").html(jsToPiece(data.board.board[i*8+3]));
+            row.find("#E").html(jsToPiece(data.board.board[i*8+4]));
+            row.find("#F").html(jsToPiece(data.board.board[i*8+5]));
+            row.find("#G").html(jsToPiece(data.board.board[i*8+6]));
+            row.find("#H").html(jsToPiece(data.board.board[i*8+7]));
+          }
+          playerTurn = data.board.playerTurn;
+          blackWin = data.board.blackWin;
+          whiteWin = data.board.whiteWin;
+        },
+        dataType: "json"
+      });
+      if(whiteWin){
+        console.log("whitewin");
+        console.log(this.player1Ident);
+        $.ajax({
+    			url: "/win",
+    			type: "GET",
+    			data: {
+    			ident:this.player1Ident
+    			},
+    			success: function(data){
+            alert("White Has Won");
+            $.get('/successlogin',function(data){
+              window.location=data.redirect;
+            });
+    				} ,
+    			dataType: "json"
+    		});
+        $.ajax({
+          url: "/loss",
+          type: "GET",
+          data: {
+          ident:this.player2Ident
+          },
+          success: function(data){
+            $.get('/successlogin',function(data){
+              window.location=data.redirect;
+            });
+            } ,
+          dataType: "json"
+        });
+      }
+      if(blackWin){
+        console.log("blackwin");
+        $.ajax({
+    			url: "/win",
+    			type: "GET",
+    			data: {
+    			ident:this.player2Ident
+    			},
+    			success: function(data){
+            alert("Black Has Won");
+            $.get('/successlogin',function(data){
+              window.location=data.redirect;
+            });
+    				} ,
+    			dataType: "json"
+    		});
+        $.ajax({
+          url: "/loss",
+          type: "GET",
+          data: {
+          ident:this.player1Ident
+          },
+          success: function(data){
+            $.get('/successlogin',function(data){
+              window.location=data.redirect;
+            });
+            } ,
+          dataType: "json"
+        });
+      }
+    tid = setTimeout(mycode, 500); // repeat myself
+  }
+  mycode();
+</script>
+</body>
+</html>
